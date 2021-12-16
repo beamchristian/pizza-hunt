@@ -6,7 +6,7 @@ const pizzaController = {
     Pizza.find({})
       .populate({
         path: 'comments',
-        select: '-__v'
+        select: '-__v',
       })
       .select('-__v')
       .sort({ _id: -1 })
@@ -22,7 +22,7 @@ const pizzaController = {
     Pizza.findOne({ _id: params.id })
       .populate({
         path: 'comments',
-        select: '-__v'
+        select: '-__v',
       })
       .select('-__v')
       .then(dbPizzaData => res.json(dbPizzaData))
@@ -57,7 +57,7 @@ const pizzaController = {
     Pizza.findOneAndDelete({ _id: params.id })
       .then(dbPizzaData => res.json(dbPizzaData))
       .catch(err => res.json(err));
-  }
+  },
 };
 
 module.exports = pizzaController;
